@@ -1,0 +1,818 @@
+/* Light mode: show sun icon, Dark Mode Show Moon Icon */
+/* 
+--------------------------------------------------------
+Part 1 Dark Mode & Light Mode For Icons
+--------------------------------------------------------
+*/
+.theme-icon.sun {
+    display: none;
+}
+
+.theme-icon.moon {
+    display: none;
+}
+
+body.light-mode .theme-icon.sun {
+    display: inline;
+}
+
+body.light-mode .theme-icon.moon {
+    display: none;
+}
+
+body.dark-mode .theme-icon.sun {
+    display: none;
+}
+
+body.dark-mode .theme-icon.moon {
+    display: inline;
+}
+
+/* 
+--------------------------------------------------------
+Part 1 Ends
+--------------------------------------------------------
+*/
+
+
+
+/* 
+--------------------------------------------------------
+Part 2 Starts: Home Page CSS
+--------------------------------------------------------
+*/
+
+/* Hero Section */
+
+.hero-section {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    /* border: 1px solid white; */
+    align-items: center;
+
+}
+
+
+.hero-title {
+
+    padding: 10px;
+    margin: 10px;
+    background-color: transparent;
+}
+
+.hero-content {
+    opacity: var(--opacity-text);
+}
+
+.header-content {
+    padding: 10px;
+    text-align: center;
+    background-color: transparent;
+
+}
+
+.header-content * {
+
+    background-color: transparent;
+}
+
+.hero-buttons button a {
+    padding: 10px;
+    background-color: var(--secondary);
+
+}
+
+.card-info button a {
+    padding: 10px;
+    background-color: var(--secondary);
+
+}
+
+.hero-buttons button a:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.card-info button a:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+
+/* Working Areas Section */
+.working-areas {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-opacity);
+    margin-top: 80px;
+
+}
+
+.working-areas h3 {
+    padding: 10px 0;
+}
+
+.working-areas * {
+    background-color: var(--primary-opacity);
+}
+
+.working-areas .left-layout {
+    text-align: center;
+}
+
+.left-layout h4 {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.left-layout p {
+    padding: 0 30px;
+    opacity: var(--opacity-text);
+}
+
+.right-layout {
+    padding: 10px 0;
+    margin: 20px;
+}
+
+.right-layout .card {
+    padding: 20px 130px;
+    margin: 10px;
+    background-color: var(--primary);
+
+}
+
+.right-layout .card h5 {
+    background: none;
+    color: var(--accent);
+
+}
+
+/* Image Gallery Css */
+
+#light-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 30px 50px;
+
+}
+
+#light-gallery a {
+    margin: 0;
+    padding: 0;
+}
+
+.image-gallery img {
+    opacity: var(--opacity-image);
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.image-gallery img:hover {
+    opacity: 1;
+}
+
+
+.gallery-heading {
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+
+
+/* 
+--------------------------------------------------------
+Part 2 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 3 Starts: Donation Page
+--------------------------------------------------------
+*/
+
+/* CSS Code For Donation */
+.donation-container {
+
+    max-width: 600px;
+    margin: 100px auto;
+    background-color: var(--primary-opacity);
+}
+
+.donation-container * {
+
+    background-color: var(--primary-opacity);
+}
+
+.donation {
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 0 auto;
+    /* text-align: center; */
+    gap: 15px;
+}
+
+.donation>div {
+    width: 100%;
+}
+
+.donation * {
+    background-color: var(--background-opacity);
+}
+
+
+.donation-theme p {
+    color: var(--casual);
+
+
+}
+
+.donation-stats {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.donation-form * {
+    width: 100%;
+    text-align: center;
+    background-color: var(--background-opacity);
+}
+
+.donation-form p {
+    padding: 20px;
+
+}
+
+.donation-form span {
+    padding: 5px 20px;
+    border: 0.5px solid var(--casual);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+
+}
+
+.donation-form input {
+    padding: 15px;
+    border: 1px solid var(--casual);
+    display: inline;
+
+}
+
+.donation-form button {
+    margin: 10px auto;
+    padding: 15px;
+    background-color: var(--secondary);
+
+}
+
+.donation .amount:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+    cursor: pointer;
+
+}
+
+.donation .amount:focus {
+    background-color: var(--accent);
+    cursor: pointer;
+    color: white;
+}
+
+.amount-raised {
+    color: var(--accent);
+}
+
+
+/* 
+--------------------------------------------------------
+Part 3 Ends
+--------------------------------------------------------
+*/
+
+
+
+
+
+/* 
+--------------------------------------------------------
+Part 3 Starts: Mission/About Page
+--------------------------------------------------------
+*/
+
+/* Video banner container */
+.video-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.video-banner .banner-heading {
+    text-align: center;
+    margin: 20px;
+}
+
+
+
+.video-banner .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.video-banner video {
+    margin-top: 50px;
+    width: 100%;
+}
+
+
+.video-banner .join {
+    background: none;
+}
+
+.video-banner .join:hover {
+    background-color: var(--secondary)
+}
+
+
+.about-us-container {
+    margin: 50px 0;
+}
+
+/* Mission vision container */
+
+.mission-vision-container {
+    background-color: var(--primary-opacity);
+}
+
+.mission-vision-container * {
+    background-color: var(--primary-opacity);
+}
+
+.mission-vision-container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* padding: 50px; */
+}
+
+.mission-vision-container p {
+    opacity: var(--opacity-text);
+}
+
+.mission-vision-container h4 {
+    padding: 10px 0px;
+    margin: 10px 0;
+}
+
+.mission-vision-container .picture-right {
+
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.mission-vision-container .description-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+
+}
+
+
+.mission-vision-container img {
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 20px 0;
+    /* border: 2px solid #fff; */
+    border-radius: 71% 30% 32% 70% / 60% 40% 60% 55%;
+    opacity: var(--opacity-image);
+}
+
+.meet-team .teams {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.meet-team {
+    margin: 80px 0;
+}
+
+.meet-team img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 20px;
+    opacity: var(--opacity-image);
+
+}
+
+.meet-team img:hover {
+
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+.meet-team .title-heading {
+    margin: 20px;
+    text-align: center;
+
+}
+
+.meet-team h5 {
+
+    margin-top: 20px;
+
+
+}
+
+
+/* 
+--------------------------------------------------------
+Part 4 Starts: Contact US Page
+--------------------------------------------------------
+*/
+
+.email-error {
+    display: none;
+    color: var(--secondary);
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+/* 
+--------------------------------------------------------
+Part 4 Ends
+--------------------------------------------------------
+*/
+
+/* 
+--------------------------------------------------------
+Part 5 Starts: Program/Project Page
+--------------------------------------------------------
+*/
+
+
+.project-banner {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+/* Newletter CSS */
+.newsletter {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--primary-opacity);
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.newsletter * {
+    background-color: var(--primary-opacity);
+
+}
+
+.newsletter input {
+    background-color: var(--primary);
+    border: none;
+    padding: 10px;
+}
+
+.newsletter .subscribe-button:hover {
+    background-color: var(--secondary);
+    transition: 0.4s;
+    cursor: pointer;
+
+}
+
+
+/* 
+--------------------------------------------------------
+Part 5 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 6 Starts: Blog Page
+--------------------------------------------------------
+*/
+/* Blog CSS */
+
+
+.blog-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 100px;
+    /* flex-wrap: wrap; */
+
+}
+
+.blog-search .left-section {
+    padding: 10px 30px;
+}
+
+
+.blog-search .right-section {
+    background-color: var(--primary-opacity);
+}
+
+.blog-search .right-section * {
+    display: none;
+}
+
+.blog-search img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+
+}
+
+.blog-search-input .search-blog {
+    padding: 10px;
+    width: 220px;
+    margin: 1px solid var(--casual);
+
+}
+
+.filter-button>button {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.blog-search .left-section p {
+    margin: 10px 0;
+}
+
+.blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+
+
+.blog-list .card-with-img {
+    padding: 20px;
+    max-width: 380px;
+}
+
+.blog-list .card-info {
+    margin: 0;
+    padding: 0;
+}
+
+
+.blog-list img {
+    width: 100%;
+    /* height: 200px; */
+    object-fit: contain;
+}
+
+.blog-list button {
+    margin: 0;
+}
+
+
+/* 
+--------------------------------------------------------
+Part 6 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 7 Starts: Media Queries
+--------------------------------------------------------
+*/
+
+
+@media (min-width: 599px) and (max-width: 649px) {
+    .video-banner video {
+        width: 500px;
+    }
+
+}
+
+@media (min-width: 600px) {
+
+    @keyframes floatBackground {
+
+        0%,
+        100% {
+            background-position: left bottom;
+            /* Initial position */
+        }
+
+        50% {
+            background-position: left calc(100% + 20px);
+            /* Moves the background up */
+        }
+    }
+
+
+    /* Hero Section Responsiveness */
+    .hero-section {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 60vh;
+        /* border: 1px solid white; */
+        align-items: center;
+
+        background:
+            linear-gradient(0deg,
+                var(--background-opacity),
+                var(--background-opacity)),
+            url('../../assets/images/heroBackground.png');
+        background-size: contain;
+        background-position: left;
+        background-repeat: no-repeat;
+        animation: floatBackground 3s ease-in-out infinite;
+
+    }
+
+    /* Working area responsiveness */
+
+    .working-areas {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: row;
+        padding: 60px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .left-layout {
+        padding: 50px;
+
+    }
+
+    .donation-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+
+    }
+
+
+
+}
+
+@media (min-width: 650px) and (max-width: 999px) {
+    .video-banner video {
+        width: 600px;
+    }
+}
+
+@media (min-width: 800px) {
+
+    /* Mission Vision Page*/
+    .mission-vision-container img {
+        width: 70%;
+
+    }
+
+    .mission-vision-container .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .mission-vision-container .description-left {
+
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        /* padding: 50px; */
+
+    }
+
+    .vision-description {
+        order: 2;
+    }
+
+
+    /* Blog Page */
+
+    .blog-search {
+        flex-direction: row;
+    }
+
+    .blog-search .left-section {
+        padding: 10px 80px;
+    }
+
+    .blog-search .right-section * {
+        display: block;
+    }
+
+
+}
+
+@media (min-width: 1000px) {
+    .image-gallery img {
+
+        width: 400px;
+
+    }
+
+    /* Video Banner */
+    .video-banner video {
+        width: 900px;
+
+    }
+
+    .video-banner .video {
+        margin-top: 100px;
+    }
+
+}
+
+@media (min-width: 1300px) {
+    .mission-vision-container .container {
+        padding: 10px 120px;
+    }
+
+    /* Video Banner */
+    .video-banner video {
+        width: 900px;
+
+    }
+}
+
+@media (min-width: 2400px) {
+    .mission-vision-container .container {
+        padding: 10px 120px;
+    }
+
+    .project-banner {
+
+
+        height: 30vh;
+    }
+}

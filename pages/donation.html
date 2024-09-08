@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.4/dist/accordion.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Internal Css -->
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+
+    <title>Donation</title>
+</head>
+
+<body>
+    <!-- Header will be loaded from JS-->
+    <section id="header"></section>
+
+
+
+
+
+    <!-- Page content -->
+    <main>
+        <!-- Main banner -->
+        <header class="project-banner container">
+
+            <div class="header-content">
+                <h4 data-aos="zoom-in" data-aos-duration="3000" class="font-title hero-title">"Support Us On Our <span
+                        class="decorated-text">Mission
+                    </span>"</h4>
+                <div class="hero-content">
+                    <p class="font-content "></p>
+                </div>
+
+            </div>
+            <div class="hero-buttons">
+                <button class="font-content" id="scroll-donation">Donate</button>
+            </div>
+        </header>
+        <!-- Look into Projects -->
+        <section class="projects container">
+            <div class="project-heading font-title">
+                <h4>Contributed <span class="decorated-text">Donations</span></h4>
+            </div>
+            <div class="cards">
+                <div data-aos="zoom-in-right" data-aos-duration="2000" class="card-with-image">
+                    <figure class="card-image">
+                        <img src="../assets/images/donations/environment.jpg" alt="Clean Environment" />
+                    </figure>
+                    <div class="card-info">
+                        <h5 class="card-info-heading font-title">Environmental Conservation Fund</h5>
+                        <p class="card-info-description font-content">
+                            Supporting initiatives to preserve natural habitats and ecosystems.
+                        </p>
+                        <div class="donation-stats">
+                            <h5 class="font-title">$42119 <span class="font-content">raised</span></h5>
+                            <p class="font-content">3510 Supporters</p>
+                        </div>
+                        <div class="donation-form">
+                            <input disabled type="range" name="vol" min="0" max="50" value="30">
+                            <button>Donate</button>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="zoom-in" data-aos-duration="2000" class="card-with-image">
+                    <figure class="card-image">
+                        <img src="../assets/images/donations/save animals.jpg" alt="Protecting Animals" />
+                    </figure>
+                    <div class="card-info">
+                        <h5 class="card-info-heading font-title">Wildlife Protection Initiative</h5>
+                        <p class="card-info-description font-content">
+                            Safeguarding endangered species and their habitats.
+                        </p>
+                        <div class="donation-stats">
+                            <h5 class="font-title">$98256 <span class="font-content">raised</span></h5>
+                            <p class="font-content">12000 Supporters</p>
+                        </div>
+                        <div class="donation-form">
+                            <input disabled type="range" name="vol" min="0" max="50" value="45">
+                            <button>Donate</button>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="zoom-in-left" data-aos-duration="2000" class="card-with-image">
+                    <figure class="card-image">
+                        <img src="../assets/images/donations/donation.jpg" alt="Volunteers" />
+                    </figure>
+                    <div class="card-info">
+                        <h5 class="card-info-heading font-title">Sustainable Communities Program</h5>
+                        <p class="card-info-description font-content">
+                            Empowering local communities to adopt eco-friendly practices.
+                        </p>
+                        <div class="donation-stats">
+                            <h5 class="font-title">$13579 <span class="font-content">raised</span></h5>
+                            <p class="font-content">2500 Supporters</p>
+                        </div>
+                        <div class="donation-form">
+                            <input disabled type="range" name="vol" min="0" max="50" value="20">
+                            <button>Donate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Donation Amount -->
+        <section data-aos="zoom-in" data-aos-duration="2000" id="main-donation" class="donation-container">
+            <div class="donation">
+                <div class="donation-theme">
+                    <p class="font-content">Together, let's embark on a journey to safeguard this natural wonder and
+                        preserve
+                        its countless
+                        benefits
+                        for the entire planet.</p>
+                </div>
+                <div class="donation-stats">
+                    <h5> <span class="font-title amount-raised">$86012</span> <span class="font-content">raised of
+                            $10000</span>
+                    </h5>
+                    <p class="font-content"><i class="fa-solid fa-heart"></i> 8120 Supporters</p>
+                </div>
+                <div class="donation-form">
+                    <input disabled type="range" name="vol" min="0" max="50" value="40">
+                    <p class="font-content"><span tabindex="1" class="amount">$10</span>
+                        <span tabindex="2" class="amount">$20</span>
+                        <span tabindex="3" class="amount">$40</span>
+                        <span tabindex="4" class="amount">$100</span>
+                    </p>
+                    <input type="number" placeholder="Other" min="1" max="1000" value="1">
+                    <button id="donate">Donate</button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FAQS -->
+        <section class="faqs container">
+            <h4 class="font-title">Frequently <span class="decorated-text">Asked</span></h4>
+            <div class="accordion-container font-content ">
+                <div class="ac">
+                    <h5 class="ac-header">
+                        <button type="button" class="ac-trigger">Can I direct my donation to a particular area or
+                            project?</button>
+                    </h5>
+                    <div class="ac-panel">
+                        <p class="ac-text">To designate your donation to a specific area or project, send us a note with
+                            your donation by mail. We'll allocate it accordingly and send you an acknowledgment. If
+                            donating by phone, inform the representative about your preference. Online donations do not
+                            renew memberships and can only be allocated to states or countries, not individual projects.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h2 class="ac-header">
+                        <button type="button" class="ac-trigger">How do I volunteer with Hope For Tomorrow?</button>
+                    </h2>
+                    <div class="ac-panel">
+                        <p class="ac-text">To volunteer, please submit an application form on our website, and our team
+                            will contact you to discuss available opportunities and scheduling.</p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h2 class="ac-header">
+                        <button type="button" class="ac-trigger">How can I learn more about giving through my workplace
+                            and employer matches for donations?</button>
+                    </h2>
+                    <div class="ac-panel">
+                        <p class="ac-text">Contact your HR department to inquire about your company's matching gift
+                            program and eligibility. You can also reach out to us directly, and we'll guide you through
+                            the process.</p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h2 class="ac-header">
+                        <button type="button" class="ac-trigger">How do I unsubscribe from Newsletters?</button>
+                    </h2>
+                    <div class="ac-panel">
+                        <p class="ac-text">Click the 'Unsubscribe' link at the bottom of any newsletter email, or
+                            contact our office directly, and we'll remove your email address from our mailing list.</p>
+                    </div>
+                </div>
+                <div class="ac">
+                    <h5 class="ac-header">
+                        <button type="button" class="ac-trigger">What is the impact of my donation?</button>
+                    </h5>
+                    <div class="ac-panel">
+                        <p class="ac-text">Your donation supports our programs and services, making a tangible
+                            difference in the lives of those we serve.</p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h5 class="ac-header">
+                        <button type="button" class="ac-trigger">Can I volunteer abroad with your organization?</button>
+                    </h5>
+                    <div class="ac-panel">
+                        <p class="ac-text">Yes, we offer international volunteer opportunities. Contact us to learn more
+                            about our global programs.</p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h5 class="ac-header">
+                        <button type="button" class="ac-trigger">How do I know my donation is secure?</button>
+                    </h5>
+                    <div class="ac-panel">
+                        <p class="ac-text">Our website uses industry-standard SSL encryption to ensure your donation is
+                            secure and private.</p>
+                    </div>
+                </div>
+
+                <div class="ac">
+                    <h5 class="ac-header">
+                        <button type="button" class="ac-trigger">Can I donate stock or securities?</button>
+                    </h5>
+                    <div class="ac-panel">
+                        <p class="ac-text">Yes, we accept donations of stock or securities. Please contact our office
+                            for more information.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Will be Loaded From JS -->
+    <section id="footer"></section>
+
+    <!-- All js links -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/accordion-js@3.3.4/dist/accordion.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="../scripts/common.js"></script>
+
+    <script src="../scripts/donation.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap');
+
+/* 
+--------------------------------------------------------
+Part 1 Starts: This part of the css is for root styles
+--------------------------------------------------------
+*/
+
+/* variable for root theme */
+:root {
+
+    --primary: #1E1E24;
+    --primary-opacity: #191920;
+    /* --primary-opacity: #1c1c22; */
+    --secondary: #E54B4B;
+    /* --secondary: #4c956c; */
+    --accent: #FFA987;
+    --casual: #F7EBE8;
+    --background-opacity: #1e1e24f2;
+    --opacity-text: 0.6;
+    --opacity-image: 0.7;
+    --font-paragraph: "Manrope", sans-serif;
+}
+
+/* variables for light theme */
+.light-mode {
+    --primary: #FEFAE0;
+    --primary-opacity: #FAEDCE;
+    --secondary: #E68369;
+    --accent: #131842;
+    --casual: #131842;
+    --opacity-text: 1;
+    --opacity-image: 0.8;
+    --background-opacity: #faedceb8;
+    --font-paragraph: "Manrope", sans-serif;
+}
+
+
+* {
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--primary);
+    color: var(--casual);
+}
+
+
+/* Chnaging windows handlebars */
+
+/* WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--casual);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+
+/* 
+--------------------------------------------------------
+Part 1 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 2 Start: Global Element Styles
+--------------------------------------------------------
+*/
+
+/* Global style for elements */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+main {
+    flex: 1;
+    min-height: 80vh;
+
+}
+
+.font-title {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.font-content {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-style: 'normal'
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--casual);
+    transition: 0.5s;
+}
+
+button {
+    transition: 0.5s;
+}
+
+span {
+    transition: 0.5s;
+}
+
+
+a:hover {
+    background-color: var(--secondary);
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    color: var(--casual);
+    background-color: var(--secondary);
+    border: none;
+    font-size: 14px;
+}
+
+
+
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    font-size: 34px;
+}
+
+h4 {
+    font-size: 30px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+span {
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+--------------------------------------------------------
+Part 2 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 3 Starts: Global Styles for Card, Text, Forms
+--------------------------------------------------------
+*/
+
+
+.decorated-text {
+    color: var(--secondary);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-skip-ink: none;
+    text-decoration-color: var(--accent);
+}
+
+
+
+
+/* Common card with image layout styling */
+
+.card-with-image * {
+    background-color: var(--primary-opacity);
+
+}
+
+.card-image img {
+    width: 100%;
+
+    /* Make the image adapt to the parent width */
+    height: 300px;
+
+    object-fit: cover;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove extra space */
+    opacity: var(--opacity-image);
+
+}
+
+.card-info-heading {
+
+    padding-top: 10px;
+    color: var(--accent);
+    /* padding-bottom: 5px; */
+}
+
+.card-info-description {
+
+    opacity: var(--opacity-text);
+}
+
+.card-info-button {
+    width: 100px;
+    align-self: flex-start;
+    margin-left: 10px;
+    background-color: var(--secondary);
+}
+
+
+
+/* Get connected form */
+
+.get-connected-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 40px 30px;
+
+}
+
+.get-connected * {
+    background-color: var(--primary-opacity);
+}
+
+.get-connected-container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+
+}
+
+.get-connected-container h4,
+.get-connected-container p {
+    margin: 10px;
+}
+
+.get-connected-container button {
+    background-color: var(--secondary);
+}
+
+.get-connected-container input,
+.get-connected-container textarea {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--casual);
+    margin: 10px 0;
+}
+
+.get-connected-container * {
+    background-color: var(--primary-opacity);
+}
+
+.right-image {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    max-width: 1400px;
+}
+
+/* What we do sections */
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    max-width: 1200px;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+
+.about-us h5 {
+    margin-top: 20px;
+    color: var(--accent);
+}
+
+.about-us p {
+    margin-top: 10px;
+    opacity: var(--opacity-text);
+}
+
+
+/* Projects Cards */
+
+.projects .project-heading {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 40px;
+}
+
+.projects .cards {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    gap: 20px;
+    /* padding: 20px; */
+    padding-right: auto;
+    padding-left: auto;
+
+
+}
+
+.card-with-image {
+    width: 400px;
+
+}
+
+.card-info {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Accordin styles */
+
+.accordion-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.ac {
+    border: 0.5px solid var(--casual);
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+
+.ac .ac-trigger {
+    border: 1px solid transparent;
+    padding: 10px;
+    color: var(--casual);
+    font: var(--font-paragraph);
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.ac .ac-trigger:focus {
+    color: var(--accent);
+}
+
+.ac .ac-panel .ac-text {
+    color: var(--casual);
+    font: var(--font-paragraph);
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+    opacity: var(--opacity-text);
+    padding: 20px;
+}
+
+.faqs h4 {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+/* 
+--------------------------------------------------------
+Part 3 Ends
+--------------------------------------------------------
+*/
+
+
+
+
+/* 
+--------------------------------------------------------
+Part 4 Starts: Header and Navbar Styles
+--------------------------------------------------------
+*/
+
+
+/* Header CSS Styles */
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+
+}
+
+.logo {
+    padding: 15px;
+
+}
+
+.logo a {
+    margin: 0;
+    padding: 0;
+}
+
+.logo a:hover {
+    cursor: pointer;
+    background: none;
+
+}
+
+
+
+.navigation ul li {
+    padding: 10px;
+    margin: 15px;
+}
+
+.navigation ul li a {
+    padding: 10px;
+    margin: 0;
+}
+
+
+
+.switch-mode-button {
+    background: transparent;
+}
+
+
+/* Show the hamburger icon on small screens */
+.hamburger {
+    display: block;
+}
+
+
+/* Add this to style the hamburger icon */
+.hamburger {
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add this to rotate the hamburger icon on click */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -5px);
+}
+
+.nav-links.show {
+    display: block;
+    padding: 10px;
+
+
+}
+
+
+
+/* 
+--------------------------------------------------------
+Part 4 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 5 Starts: Footer Navigation Styles
+--------------------------------------------------------
+*/
+
+
+footer {
+    background-color: var(--primary-opacity);
+}
+
+footer * {
+    background-color: var(--primary-opacity);
+}
+
+footer button {
+    background-color: var(--secondary);
+}
+
+footer .logo {
+    font-size: 20px;
+    padding: 15px;
+}
+
+footer .navigation ul {
+    display: flex;
+    flex-direction: column;
+}
+
+footer .navigation ul li {
+    padding: 10px;
+}
+
+footer .navigation ul li a {
+    padding: 10px;
+}
+
+
+/* 
+--------------------------------------------------------
+Part 5 Ends
+--------------------------------------------------------
+*/
+
+
+/* 
+--------------------------------------------------------
+Part 6: Media Queries
+--------------------------------------------------------
+*/
+
+
+@media (min-width: 600px) {
+
+    /* Styles for tablets and small laptops */
+    footer .main-header {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
+    footer .navigation ul {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 769px) {
+
+    .about-us .about-left {
+        text-align: center;
+        padding: 20px;
+    }
+
+
+
+    .about-right {
+        display: flex;
+        justify-content: space-around;
+        gap: 50px;
+
+    }
+
+}
+
+@media (max-width: 999px) {
+    .nav-links.show {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hide the navigation links on small screens */
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (min-width: 1000px) {
+    .navigation ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Hide the hamburger icon on medium screens and above */
+    .hamburger {
+        display: none;
+    }
+
+    .main-header {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    /* Get connected form */
+    .get-connected-container {
+        display: flex;
+        justify-content: center;
+        padding: 30px 40px;
+        margin: 20px;
+
+    }
+
+    .get-connected-container * {
+        background-color: var(--primary-opacity);
+        padding: 10px;
+    }
+
+    .right-image {
+        display: flex;
+
+        padding: 10px;
+
+    }
+
+    .get-connected-container input,
+    .get-connected-container textarea {
+        width: 100%;
+    }
+
+    .right-image img {
+        margin-top: 100px;
+        height: 300px;
+        animation: floatUpDown 3s ease-in-out infinite;
+        opacity: var(--opacity-image);
+    }
+
+
+
+    @keyframes floatUpDown {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+}
