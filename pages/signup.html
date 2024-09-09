@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pages.css" />
+    <title>Signup</title>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <main>
+      <section class="get-connected container">
+        <div class="get-connected-container">
+          <form id="signup-form" class="get-connected-form">
+            <div class="form-description">
+              <h4 class="font-title">Create an Account</h4>
+              <p class="font-content">
+                Join our community to make a difference!
+              </p>
+            </div>
+            <div>
+              <div class="input-name">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  id="username"
+                  name="username"
+                  required
+                />
+                <span class="error font-content"></span>
+              </div>
+              <div class="input-email">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  id="password"
+                  name="password"
+                  required
+                />
+                <span class="error font-content"></span>
+              </div>
+              <div class="input-email">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  id="email"
+                  name="email"
+                  required
+                />
+                <span class="error font-content"></span>
+              </div>
+            </div>
+            <div class="submit-button">
+              <button type="submit">Signup</button>
+            </div>
+          </form>
+          <div id="response-message" class="font-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer"></footer>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/signup.js"></script>
+
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from submitting the default way
+
+          var formData = new FormData(this);
+
+          fetch("signup.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                Toastify({
+                  text: data.message,
+                  duration: 3000,
+                  gravity: "top",
+                  position: "right",
+                  backgroundColor:
+                    "linear-gradient(to right, #00b09b, #96c93d)",
+                  stopOnFocus: true,
+                }).showToast();
+
+                // Redirect after a delay to allow toast to show
+                setTimeout(() => {
+                  window.location.href = "login.html"; // Change 'login.html' to the path of your login page
+                }, 3000); // Delay should match the toast duration
+              } else {
+                Toastify({
+                  text: data.message,
+                  duration: 3000,
+                  gravity: "top",
+                  position: "right",
+                  backgroundColor:
+                    "linear-gradient(to right, #ff5f6d, #ffc371)",
+                  stopOnFocus: true,
+                }).showToast();
+              }
+            })
+            .catch((error) => {
+              Toastify({
+                text: "An error occurred. Please try again.",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                stopOnFocus: true,
+              }).showToast();
+            });
+        });
+    </script>
+  </body>
+</html>

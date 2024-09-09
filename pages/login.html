@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- External CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- All Internal links -->
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pages.css" />
+
+    <title>Login</title>
+  </head>
+
+  <body>
+    <!-- Header will be loaded from JS-->
+    <header id="header"></header>
+
+    <main>
+      <!-- Login Section -->
+      <section class="get-connected container">
+        <div class="get-connected-container">
+          <form id="login-form" class="get-connected-form">
+            <div class="form-description">
+              <h4 class="font-title">Login to Your Account</h4>
+              <p class="font-content">Access your account to continue!</p>
+            </div>
+            <div>
+              <div class="input-email">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  id="email"
+                  name="email"
+                />
+                <span class="error font-content"></span>
+              </div>
+              <div class="input-password">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  id="password"
+                  name="password"
+                />
+                <span class="error font-content"></span>
+              </div>
+            </div>
+            <div class="submit-button">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Will be Loaded From JS -->
+    <footer id="footer"></footer>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="../scripts/common.js"></script>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>
