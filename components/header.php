@@ -34,7 +34,7 @@
                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
                         if ($_SESSION['role'] === 'admin') {
                             // Show dashboard link for admin
-                            echo '<li><a href="../protected/dashboard.php">Dashboard</a></li>';
+                            echo '<li><a href="../protected/pages/dashboard.php">Dashboard</a></li>';
                         }
                         // Show logout link for both admin and regular users
                         echo '<li><a href="../pages/logout.php">Logout</a></li>';

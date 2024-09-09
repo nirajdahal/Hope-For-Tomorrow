@@ -77,6 +77,18 @@
     <script src="../scripts/signup.js"></script>
 
     <script>
+      // Check if user is already logged in
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check for the loggedin cookie
+        const isLoggedIn = document.cookie
+          .split(";")
+          .some((item) => item.trim().startsWith("loggedin=true"));
+
+        if (isLoggedIn) {
+          // Redirect to the appropriate page
+          window.location.href = "../index.html"; // Change this URL as needed
+        }
+      });
       document
         .getElementById("signup-form")
         .addEventListener("submit", function (event) {

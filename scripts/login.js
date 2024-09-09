@@ -21,6 +21,9 @@ document
             stopOnFocus: true,
           }).showToast();
 
+          // Set the cookie manually if needed (if not already set by PHP)
+          document.cookie = "loggedin=true; path=/; max-age=3600";
+
           // Redirect to the URL provided by the PHP script
           setTimeout(() => {
             window.location.href = data.redirect;

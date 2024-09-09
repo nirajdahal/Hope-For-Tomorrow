@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <title>Login</title>
     <!-- External CSS -->
     <link
       rel="stylesheet"
@@ -14,14 +14,10 @@
     <!-- All Internal links -->
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../css/pages.css" />
-
-    <title>Login</title>
   </head>
-
   <body>
     <!-- Header will be loaded from JS-->
     <header id="header"></header>
-
     <main>
       <!-- Login Section -->
       <section class="get-connected container">
@@ -58,15 +54,27 @@
         </div>
       </section>
     </main>
-
     <!-- Footer Will be Loaded From JS -->
     <footer id="footer"></footer>
-
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
     ></script>
     <script src="../scripts/common.js"></script>
     <script src="../scripts/login.js"></script>
+    <script>
+      // Check if user is already logged in
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check for the loggedin cookie
+        const isLoggedIn = document.cookie
+          .split(";")
+          .some((item) => item.trim().startsWith("loggedin=true"));
+
+        if (isLoggedIn) {
+          // Redirect to the appropriate page
+          window.location.href = "../index.html"; // Change this URL as needed
+        }
+      });
+    </script>
   </body>
 </html>

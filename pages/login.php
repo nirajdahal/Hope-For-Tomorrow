@@ -1,6 +1,5 @@
 <?php
 session_start(); // Make sure session is started
-header('Content-Type: application/json');
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,8 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
+            // Set a cookie to indicate the user is logged in
+            setcookie("loggedin", "true", time() + 3600, "/"); // Expires in 1 hour
+
             // Determine redirect URL based on role
-            $redirectUrl = $user['role'] === 'admin' ? '../protected/dashboard.php' : '../index.html';
+            $redirectUrl = $user['role'] === 'admin' ? '../protected/pages/dashboard.php' : '../index.html';
             
             echo json_encode([
                 "success" => true,
