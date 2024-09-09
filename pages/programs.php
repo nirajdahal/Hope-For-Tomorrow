@@ -1,3 +1,17 @@
+<?php
+// Create connection
+$conn = new mysqli("localhost", "root", "", "hopefortomorrow_db");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch project data from the database
+$sql = "SELECT image, title, description FROM projects"; // Change 'projects' to your actual table name
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,31 +25,25 @@
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/pages.css" />
 
-
-
     <title>Programs</title>
 </head>
 
 <body>
-    <!-- Header will be loaded from JS-->
+    <!-- Header will be loaded from JS -->
     <div id="header"></div>
 
     <!-- Page content -->
     <main>
 
         <header class="project-banner container">
-
             <div class="header-content">
-                <h4 data-aos="zoom-in" data-aos-duration="3000" class="font-title hero-title">"Projects for a <span
-                        class="decorated-text">Sustainable
-                    </span>Future"</h4>
+                <h4 data-aos="zoom-in" data-aos-duration="3000" class="font-title hero-title">"Projects for a <span class="decorated-text">Sustainable Future"</span></h4>
                 <div class="hero-content">
                     <p class="font-content "></p>
                 </div>
-
             </div>
             <div class="hero-buttons">
-                <button class="font-content" href="./pages/donation.html">Donate</button>
+                <button class="font-content" onclick="window.location.href='./pages/donation.html'">Donate</button>
             </div>
         </header>
 
@@ -45,105 +53,28 @@
                 <h4>Look At Our <span class="decorated-text">Projects</span></h4>
             </div>
             <div data-aos="zoom-in" data-aos-duration="2000" class="cards">
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/8.jpg" alt="Trees plantation" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Forest Restoration</h5>
-                        <p class="card-info-description font-content">Reforestation revitalizes ecosystems, combats
-                            climate change, & biodiversity.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/7.jpg" alt="Cleaning Plastic" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">The Clean-Up Team - Plastic waste</h5>
-                        <p class="card-info-description font-content">The Clean-Up Team fights plastic waste, protecting
-                            our environment.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/6.jpg" alt="Dog picture with man" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Dog Rescue: Promoting Protection</h5>
-                        <p class="card-info-description font-content">Dog Rescue: Advocating for the protection, safety,
-                            and well-being of dogs.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/5.jpg" alt="Wildlife Conservation" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Wildlife Conservation Efforts</h5>
-                        <p class="card-info-description font-content">Protecting endangered species and preserving
-                            ecosystems.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/4.jpg" alt="Sustainable Living" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Sustainable Living Initiatives</h5>
-                        <p class="card-info-description font-content">Promoting eco-friendly practices for a greener
-                            future.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/3.jpg" alt="Environmental Education" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Environment Education Programs</h5>
-                        <p class="card-info-description font-content">Empowering communities through environmental
-                            awareness.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/2.jpg" alt="Climate Change" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Climate Change Mitigation</h5>
-                        <p class="card-info-description font-content">Addressing the impact of climate change through
-                            sustainable solutions.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/1.jpg" alt="Community Development" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Community Development Projects</h5>
-                        <p class="card-info-description font-content">Empowering communities through sustainable
-                            development initiatives.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
-                <div class="card-with-image">
-                    <figure class="card-image">
-                        <img src="../assets/images/projects/savedogs.jpg" alt="Animal Welfare" />
-                    </figure>
-                    <div class="card-info">
-                        <h5 class="card-info-heading font-title">Animal Welfare Initiatives</h5>
-                        <p class="card-info-description font-content">Improving the lives of animals through rescue,
-                            rehabilitation, and advocacy.</p>
-                        <button class="card-info-button">View</button>
-                    </div>
-                </div>
+
+                <?php
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        // Use string concatenation with echo
+                        echo '
+                        <div class="card-with-image">
+                            <figure class="card-image">
+                                <img src="../assets/images/projects/' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['title']) . '" />
+                            </figure>
+                            <div class="card-info">
+                                <h5 class="card-info-heading font-title">' . htmlspecialchars($row["title"]) . '</h5>
+                                <p class="card-info-description font-content">' . htmlspecialchars($row["description"]) . '</p>
+                                <button class="card-info-button">View</button>
+                            </div>
+                        </div>';
+                    }
+                } else {
+                    echo '<p>No projects found.</p>';
+                }
+                ?>
 
             </div>
         </section>
@@ -241,8 +172,9 @@
 
     </main>
 
-    <!-- Footer Will be Loaded From JS -->
+    <!-- Footer will be loaded from JS -->
     <div id="footer"></div>
+
     <!-- All js links -->
     <script src="https://unpkg.com/accordion-js@3.3.4/dist/accordion.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -254,3 +186,8 @@
 </body>
 
 </html>
+
+<?php
+// Close the database connection
+$conn->close();
+?>

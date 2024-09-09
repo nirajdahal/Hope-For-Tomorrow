@@ -25,7 +25,7 @@
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="../pages/mission.html">Mission</a></li>
                     <li><a href="../pages/donation.html">Donation</a></li>
-                    <li><a href="../pages/programs.html">Programs</a></li>
+                    <li><a href="../pages/programs.php">Programs</a></li>
                     <li><a href="../pages/blogs.html">Blogs</a></li>
                     <li><a href="../pages/contact.html">Contact</a></li>
 
