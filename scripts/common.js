@@ -55,10 +55,6 @@ document.addEventListener("DOMContentLoaded", themeManager.applyTheme);
 
 // Add this JavaScript code to toggle the navigation links on click
 
-// Add this JavaScript code to toggle the navigation links on click
-
-// Add this JavaScript code to toggle the navigation links on click
-
 function toggleMenu() {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".nav-links");
@@ -73,3 +69,39 @@ function toggleMenu() {
     navLinks.style.display = ""; // Set display to an empty string to allow CSS to take over
   }
 }
+
+/*
+<section class="dashboard-container">
+    <h3 class="font-title">Manage Projects</h3>
+    <div class="table-responsive">
+        <table id="project-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['id']); ?></td>
+                    <td><?php echo htmlspecialchars($row['title']); ?></td>
+                    <td><?php echo htmlspecialchars($row['description']); ?></td>
+                    <td><img src="../../assets/images/projects/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" width="100"></td>
+                    <td>
+                        <a href="edit_project.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="edit-btn">Edit</a>
+                        <button class="delete-btn" data-project-id="<?php echo htmlspecialchars($row['id']); ?>" onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+*/

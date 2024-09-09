@@ -82,24 +82,33 @@ $conn->close();
     <!-- External CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../css/pages.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/dashboard.css" />
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
-        <h1>Manage Users</h1>
+    <!-- <div id="header"></div> -->
+
+    <header>
+    <div class="header-container">
+        <h1 class="logo">Admin Panel</h1>
         <nav>
-            <ul>
-                <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../pages/logout.php">Logout</a></li>
+            <ul class="nav-links">
+            <ul class="nav-links">
+            <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="manage-users.php">Manage Users</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../pages/logout.php">Logout</a></li>
+            </ul>
             </ul>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main>
-        <section class="dashboard-container">
-            <h2>Manage Users</h2>
+    
+<main>
+    <section class="dashboard-container">
+        <h3 class="font-title">Manage Users</h3>
+        <div class="table-responsive">
             <table id="user-table">
                 <thead>
                     <tr>
@@ -129,14 +138,17 @@ $conn->close();
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <p>&copy; 2024 Hope for Tomorrow Foundation</p>
-    </footer>
 
+    <div id="footer"></div>
+
+    
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/common.js"></script>
     <script src="../scripts/user-management.js"></script>
+ 
 </body>
 </html>
