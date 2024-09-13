@@ -12,9 +12,7 @@ Part 1 Starts: This part of the css is for root styles
 
     --primary: #1E1E24;
     --primary-opacity: #191920;
-    /* --primary-opacity: #1c1c22; */
     --secondary: #E54B4B;
-    /* --secondary: #4c956c; */
     --accent: #FFA987;
     --casual: #F7EBE8;
     --background-opacity: #1e1e24f2;
@@ -141,9 +139,6 @@ button {
     border: none;
     font-size: 14px;
 }
-
-
-
 
 button:hover {
     cursor: pointer;

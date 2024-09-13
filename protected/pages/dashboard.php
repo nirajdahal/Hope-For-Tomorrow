@@ -7,7 +7,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +20,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
 </head>
 <body>
 <body>
-  
- 
-
     <header>
     <div class="header-container">
         <h1 class="logo">Admin Panel  <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
@@ -51,11 +47,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
                 <li><a href="manage-projects.php">Manage Projects</a></li>
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../pages/logout.php">Logout</a></li>
-
-           
-               
-                  
-            
                 </ul>
         </nav>
     </div>
@@ -67,10 +58,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
             <!-- Additional dashboard content goes here -->
         </section>
     </main>
-
-
-       
-  
     <script src="../../scripts/common.js"></script>
 </body>
 </html>

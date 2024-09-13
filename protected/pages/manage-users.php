@@ -142,10 +142,7 @@ $conn->close();
     </section>
 </main>
 
-
     <div id="footer"></div>
-
-    
     <script src="./scripts/home.js"></script>
     <script src="./scripts/common.js"></script>
     <script src="../scripts/user-management.js"></script>
