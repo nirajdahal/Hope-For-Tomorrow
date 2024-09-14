@@ -37,7 +37,6 @@ $project_count = $result_projects->fetch_assoc()['count'];
 // Close the database connection
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +51,12 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 <header>
+=======
+<body>
+    <header>
+>>>>>>> 61663e0210e9f14e51aefde8aa15292d9d0ce42f
     <div class="header-container">
         <h1 class="logo"> <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
                         <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -80,16 +84,12 @@ $conn->close();
                 <li><a href="manage-subscriptions.php">Subscriptions</a></li>
                 <li><a href="../../index.php">Home</a></li>
                 <li><a href="../../pages/logout.php">Logout</a></li>
-
-           
-               
-                  
-            
                 </ul>
         </nav>
     </div>
 </header>
 
+<<<<<<< HEAD
 <main>
     <section class="dashboard-container">
         <h2 class="font-title">Dashboard</h2>
@@ -151,5 +151,14 @@ $conn->close();
 </script>
 
 <script src="../../scripts/common.js"></script>
+=======
+    <main>
+        <section class="dashboard-container">
+            <h2>Dashboard</h2>
+            <!-- Additional dashboard content goes here -->
+        </section>
+    </main>
+    <script src="../../scripts/common.js"></script>
+>>>>>>> 61663e0210e9f14e51aefde8aa15292d9d0ce42f
 </body>
 </html>

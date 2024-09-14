@@ -163,11 +163,15 @@ $conn->close();
     </section>
 </main>
 
-
     <div id="footer"></div>
+<<<<<<< HEAD
 
     
     <script src="../../scripts/common.js"></script>
+=======
+    <script src="./scripts/home.js"></script>
+    <script src="./scripts/common.js"></script>
+>>>>>>> 61663e0210e9f14e51aefde8aa15292d9d0ce42f
     <script src="../scripts/user-management.js"></script>
  
 </body>

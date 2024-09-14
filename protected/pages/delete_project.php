@@ -1,9 +1,5 @@
 <?php
 session_start();
-
-
-
-
 // Create connection
 $conn = new mysqli("localhost", "root", "", "hopefortomorrow_db");
 

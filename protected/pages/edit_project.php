@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-
-
-
 // Create connection
 $conn = new mysqli("localhost", "root", "", "hopefortomorrow_db");
 
@@ -143,11 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php } ?>
     </div>
 </section>
-
     </main>
-
-
-  
     <script src="../../scripts/common.js"></script>
 </body>
 </html>

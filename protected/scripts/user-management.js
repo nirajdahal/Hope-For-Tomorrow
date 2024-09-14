@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .then((response) => response.json())
           .then((data) => {
             if (data.success) {
-              this.closest("tr").remove(); // Remove the row from the table
+              this.closest("tr").remove(); // Remove the row from table
             }
             alert(data.message);
           });
