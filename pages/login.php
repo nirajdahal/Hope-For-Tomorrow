@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie("loggedin", "true", time() + 3600, "/"); // Expires in 1 hour
 
             // Determine redirect URL based on role
-            $redirectUrl = $user['role'] === 'admin' ? '../protected/pages/dashboard.php' : '../index.html';
+            $redirectUrl = $user['role'] === 'admin' ? '../protected/pages/dashboard.php' : '../index.php';
             
             echo json_encode([
                 "success" => true,

@@ -112,6 +112,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -144,6 +145,34 @@ nav {
   nav {
     margin-top: 10px;
   }
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+#userChart {
+  flex: 1;
+  width: 350px !important;
+  height: 350px !important;
+}
+
+#subscriptionChart {
+  flex: 2;
+}
+
+canvas {
+  width: 50%;
+  height: auto;
+  background: transparent;
 }
 
 /* Responsive scrolling */

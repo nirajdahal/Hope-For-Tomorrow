@@ -6,6 +6,36 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../../pages/login.html"); // Redirect to login page
     exit();
 }
+
+// Connect to the database
+$conn = new mysqli("localhost", "root", "", "hopefortomorrow_db");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch user/admin counts
+$query_users = "SELECT role, COUNT(*) as count FROM user GROUP BY role";
+$result_users = $conn->query($query_users);
+$user_data = [];
+while ($row = $result_users->fetch_assoc()) {
+    $user_data[$row['role']] = $row['count'];
+}
+$user_count = isset($user_data['user']) ? $user_data['user'] : 0;
+$admin_count = isset($user_data['admin']) ? $user_data['admin'] : 0;
+
+// Fetch subscription users and projects counts
+$query_subscriptions = "SELECT COUNT(*) as count FROM newsletter_subscriptions";
+$result_subscriptions = $conn->query($query_subscriptions);
+$subscription_count = $result_subscriptions->fetch_assoc()['count'];
+
+$query_projects = "SELECT COUNT(*) as count FROM projects";
+$result_projects = $conn->query($query_projects);
+$project_count = $result_projects->fetch_assoc()['count'];
+
+// Close the database connection
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +48,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../css/pages.css" />
     <link rel="stylesheet" type="text/css" href="../styles/dashboard.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<body>
-  
- 
-
-    <header>
+<header>
     <div class="header-container">
-        <h1 class="logo">Admin Panel  <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
+        <h1 class="logo"> <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
                         <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <!-- Sun -->
                             <circle cx="12" cy="12" r="5"></circle>
@@ -47,9 +75,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
         <nav>
             <ul class="nav-links">
             <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="manage-users.php">Manage Users</a></li>
-                <li><a href="manage-projects.php">Manage Projects</a></li>
-                <li><a href="../../index.html">Home</a></li>
+                <li><a href="manage-users.php">Users</a></li>
+                <li><a href="manage-projects.php">Projects</a></li>
+                <li><a href="manage-subscriptions.php">Subscriptions</a></li>
+                <li><a href="../../index.php">Home</a></li>
                 <li><a href="../../pages/logout.php">Logout</a></li>
 
            
@@ -61,16 +90,66 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
     </div>
 </header>
 
-    <main>
-        <section class="dashboard-container">
-            <h2>Dashboard</h2>
-            <!-- Additional dashboard content goes here -->
-        </section>
-    </main>
+<main>
+    <section class="dashboard-container">
+        <h2 class="font-title">Dashboard</h2>
 
+        <div class="charts">
 
-       
-  
-    <script src="../../scripts/common.js"></script>
+        <!-- User/Admin Chart -->
+        <div class="chart-container">
+            <canvas id="userChart"></canvas>
+        </div>
+
+        <!-- Subscription/Projects Chart -->
+        <div class="chart-container">
+            <canvas id="subscriptionChart"></canvas>
+        </div>
+</div>
+    </section>
+</main>
+
+<script>
+    // Data for the User/Admin Chart
+    const userChart = new Chart(document.getElementById('userChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels: ['Users', 'Admins'],
+            datasets: [{
+                label: 'Number of Users and Admins',
+                data: [<?= $user_count ?>, <?= $admin_count ?>],
+                backgroundColor: ['#FF6384', '#36A2EB'],
+                hoverBackgroundColor: ['#FF6384', '#36A2EB']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+    // Data for the Subscription/Projects Chart
+    const subscriptionChart = new Chart(document.getElementById('subscriptionChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Subscriptions', 'Projects'],
+            datasets: [{
+                label: 'Count',
+                data: [<?= $subscription_count ?>, <?= $project_count ?>],
+                backgroundColor: ['#4BC0C0', '#FFCE56'],
+                hoverBackgroundColor: ['#4BC0C0', '#FFCE56']
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<script src="../../scripts/common.js"></script>
 </body>
 </html>

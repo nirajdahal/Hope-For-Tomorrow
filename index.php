@@ -25,7 +25,64 @@
 
   <body>
     <!-- Header will be loaded from JS-->
-    <div id="header"></div>
+    <header class="main-header">
+        <figure class="logo">
+            <p class="font-title"><b><a href="../index.php">Hope For Tomorrow</a></b></p>
+        </figure>
+        <nav class="navigation font-content">
+            <!-- Hamburger icon -->
+            <button class="hamburger" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="./pages/mission.php">Mission</a></li>
+                    <li><a href="./pages/donation.html">Donation</a></li>
+                    <li><a href="./pages/programs.php">Programs</a></li>
+                    <li><a href="./pages/blogs.html">Blogs</a></li>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+                        if ($_SESSION['role'] === 'admin') {
+                            // Show dashboard link for admin
+                            echo '<li><a href="./protected/pages/dashboard.php">Dashboard</a></li>';
+                        }
+                        // Show logout link for both admin and regular users
+                        echo '<li><a href="./pages/logout.php">Logout</a></li>';
+                    } else {
+                        // Show login and signup links for guests
+                        echo '<li><a href="./pages/login.html">Login</a></li>';
+                        echo '<li><a href="./pages/signup.html">Signup</a></li>';
+                    }
+                    ?>
+
+                    <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
+                        <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Sun -->
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Moon -->
+                            <path d="M21 12.79A9 9 0 0111.21 3 7.5 7.5 0 1021 12.79z"></path>
+                        </svg>
+                    </button>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <!-- Page content -->
     <main>
@@ -49,20 +106,8 @@
 
       <!-- Newletter  -->
 
-      <section class="newsletter">
-        <header class="subscript-text">
-          <h5 class="font-title">Subscribe to our newsletter</h5>
-        </header>
-        <form class="subscript-input font-content">
-          <input
-            class="subscribe-input"
-            placeholder="Your Email"
-            type="email"
-          />
-          <button class="subscribe-button" type="button">Submit</button>
-        </form>
-      </section>
-
+      
+      <?php include './components/newsletter.php'; ?>
       <!-- What we do -->
       <section data-aos="zoom-in" data-aos-duration="2000" class="container">
         <div class="about-us">
@@ -357,8 +402,8 @@
       </section>
     </main>
 
-    <!-- Footer Will be Loaded From JS -->
-    <div id="footer"></div>
+    <!-- Footer Will be Loaded From JS
+    <div id="footer"></div> -->
 
     <!-- All js links -->
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->

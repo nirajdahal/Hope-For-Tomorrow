@@ -1,10 +1,13 @@
 <?php
 session_start();
 
+// Check if the user is logged in and is an admin
+if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ../pages/login.php'); // Redirect to login if not authorized
+    exit();
+}
 
-
-
-// Create connection
+// Connect to the database
 $conn = new mysqli("localhost", "root", "", "hopefortomorrow_db");
 
 // Check connection
@@ -12,57 +15,49 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Redirect to login if not logged in or not an admin
-if (!isset($_SESSION['loggedin']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../../pages/login.html");
+// Handle subscription deletion
+if (isset($_POST['action']) && $_POST['action'] == 'delete_subscription') {
+    $email = $_POST['email'];
+    
+    $delete_query = "DELETE FROM newsletter_subscriptions WHERE email = ?";
+    $stmt = $conn->prepare($delete_query);
+    $stmt->bind_param("s", $email);
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true, "message" => "Subscription deleted successfully."]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Error deleting subscription."]);
+    }
+    $stmt->close();
     exit();
 }
 
-// Get the project ID from the URL
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+// Fetch subscriptions
+$sql = "SELECT email FROM newsletter_subscriptions";
+$result = $conn->query($sql);
 
-// Delete the project
-if ($id > 0) {
-    // Fetch the image name
-    $query = "SELECT image FROM projects WHERE id = $id";
-    $result = $conn->query($query);
-    $project = $result->fetch_assoc();
-    
-    if ($project) {
-        // Delete the image file
-        $imagePath = '../../assets/images/projects/' . $project['image'];
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
-
-        // Delete the project from the database
-        $query = "DELETE FROM projects WHERE id = $id";
-        if ($conn->query($query)) {
-            header("Location: manage-projects.php");
-            exit();
-        } else {
-            echo "Error: " . $conn->error;
-        }
-    } else {
-        echo "Project not found.";
+$subscriptions = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $subscriptions[] = $row;
     }
 }
-?>
 
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Project</title>
+    <title>Manage Subscriptions</title>
     <!-- External CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../css/pages.css" />
     <link rel="stylesheet" type="text/css" href="../styles/dashboard.css" />
 </head>
 <body>
-   
-<header>
+    <!-- Header -->
+    <header>
     <div class="header-container">
         <h1 class="logo"> <button class="switch-mode-button" style="background-color: transparent;" onclick="toggleMode()">
                         <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -99,21 +94,37 @@ if ($id > 0) {
         </nav>
     </div>
 </header>
+    
     <main>
         <section class="dashboard-container">
-            <h2>Delete Project</h2>
-            <p>Project has been successfully deleted.</p>
-            <a href="manage-projects.php">Back to Manage Projects</a>
+            <h3 class="font-title">Manage Subscriptions</h3>
+            <div class="table-responsive">
+                <table id="user-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($subscriptions as $subscription): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($subscription['email']); ?></td>
+                            <td>
+                                <button class="delete-btn" data-email="<?php echo htmlspecialchars($subscription['email']); ?>">Delete</button>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
+   
 
-
+    
     <script src="../../scripts/common.js"></script>
+    <script src="../scripts/subscription-management.js"></script>
 </body>
 </html>
-
-<?php
-// Close connection
-$conn->close();
-?>

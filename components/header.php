@@ -11,7 +11,7 @@
 <body>
     <header class="main-header">
         <figure class="logo">
-            <p class="font-title"><b><a href="../index.html">Hope For Tomorrow</a></b></p>
+            <p class="font-title"><b><a href="../index.php">Hope For Tomorrow</a></b></p>
         </figure>
         <nav class="navigation font-content">
             <!-- Hamburger icon -->
@@ -22,8 +22,8 @@
             </button>
             <div class="nav-links">
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../pages/mission.html">Mission</a></li>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../pages/mission.php">Mission</a></li>
                     <li><a href="../pages/donation.html">Donation</a></li>
                     <li><a href="../pages/programs.php">Programs</a></li>
                     <li><a href="../pages/blogs.html">Blogs</a></li>

@@ -8,7 +8,7 @@
     <!-- All css links -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
-    <link rel="stylesheet" type="text/css" href="./css/pages.css" />
+    <link rel="stylesheet" type="text/css" href="../css/pages.css" />
     <!-- <link rel="stylesheet" type="text/css" href="../css/pages/mission.css" /> -->
 
 
@@ -122,16 +122,7 @@
 
         <!-- Newletter  -->
 
-        <section class="newsletter">
-            <header class="subscript-text">
-                <h5 class="font-title">Subscribe to our newsletter</h5>
-            </header>
-            <form class="subscript-input font-content">
-                <input class="subscribe-input" placeholder="Your Email" type="email">
-                <button class="subscribe-button" type="button">Submit</button>
-            </form>
-
-        </section>
+        <?php include "../components/newsletter.php"; ?>
 
         <!-- Meet team container -->
         <section data-aos="zoom-in" data-aos-duration="2000" class="meet-team container">
