@@ -35,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $conn = null; // Close connection
+    $conn = null; 
+    // close connection here
 
     // Return JSON response
     echo json_encode(['message' => $message]);
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form id="newsletterForm" class="subscript-input font-content" method="POST">
             <input
               class="subscribe-input"
-              placeholder="Your Email"
+              placeholder="Your Email here"
               type="email"
               name="email"
               required
@@ -105,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 backgroundColor: data.message.includes("successful") ? "green" : "red"
             }).showToast();
 
-            // Clear the input field after subscription
             if (data.message.includes("successful")) {
                 document.querySelector('input[name="email"]').value = '';
             }

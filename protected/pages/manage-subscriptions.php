@@ -23,9 +23,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete_subscription') {
     $stmt = $conn->prepare($delete_query);
     $stmt->bind_param("s", $email);
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Subscription deleted successfully."]);
+        echo json_encode(["success" => true, "message" => "Successfully deleted ."]);
     } else {
-        echo json_encode(["success" => false, "message" => "Error deleting subscription."]);
+        echo json_encode(["success" => false, "message" => "Error on deletion."]);
     }
     $stmt->close();
     exit();
@@ -85,11 +85,6 @@ $conn->close();
                 <li><a href="manage-subscriptions.php">Subscriptions</a></li>
                 <li><a href="../../index.php">Home</a></li>
                 <li><a href="../../pages/logout.php">Logout</a></li>
-
-           
-               
-                  
-            
                 </ul>
         </nav>
     </div>

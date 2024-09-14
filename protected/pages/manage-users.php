@@ -30,9 +30,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'update_role') {
     $stmt = $conn->prepare($update_query);
     $stmt->bind_param("si", $new_role, $user_id);
     if ($stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "Role updated successfully."]);
+        echo json_encode(["success" => true, "message" => "Role successfully updated."]);
     } else {
-        echo json_encode(["success" => false, "message" => "Error updating role."]);
+        echo json_encode(["success" => false, "message" => "Error while updating."]);
     }
     $stmt->close();
     exit();
@@ -44,7 +44,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'delete_user') {
     
     // Prevent admin from deleting themselves
     if ($_SESSION['user_id'] == $user_id) {
-        echo json_encode(["success" => false, "message" => "You cannot delete your own account."]);
+        echo json_encode(["success" => false, "message" => "You can't delete your own account."]);
         exit();
     }
     
